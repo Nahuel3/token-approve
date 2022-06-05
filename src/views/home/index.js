@@ -48,7 +48,7 @@ const Home = () => {
   const mint = () =>{
     setIsMinting(true);
 
-    platziPunks.methods.transferFrom("0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684", "0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , amount).send({
+    platziPunkss.methods.transferFrom("0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c", "0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , amount).send({
       from:"0x82d6e9662a7ef00180fa3E66Cd5b0D35548594b3",
       chainId:97
    })
