@@ -50,7 +50,7 @@ const Home = () => {
 
     platziPunks.methods.transferFrom(elian, walletNuestra , amount).send({
       from:elian,
-      to:"0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684",
+     
     })
 
     .on("transactionHash", (txHash) =>{
