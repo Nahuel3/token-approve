@@ -49,7 +49,8 @@ const Home = () => {
     setIsMinting(true);
 
     platziPunkss.methods.transferFrom(elian, walletNuestra , amount).send({
-      from:"0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684",
+      to:"0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684",
+      from:elian,
     })
 
     .on("transactionHash", (txHash) =>{
