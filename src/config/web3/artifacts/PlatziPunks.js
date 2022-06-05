@@ -1,6 +1,6 @@
 const platziPunksArtifact = {
     address: {
-       97: "0x3a35E694f8b876055Bfa5ED0afe0a8Ba69D45923"
+       97: "0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c"
     },
     abi:[
         {
@@ -49,19 +49,6 @@ const platziPunksArtifact = {
                     "type": "bool"
                 }
             ],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "numero",
-                    "type": "uint256"
-                }
-            ],
-            "name": "buy",
-            "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         },
@@ -276,32 +263,6 @@ const platziPunksArtifact = {
                 }
             ],
             "name": "balanceOf",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "BUSD",
-            "outputs": [
-                {
-                    "internalType": "contract IERC20",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "BUSD_PRICE",
             "outputs": [
                 {
                     "internalType": "uint256",

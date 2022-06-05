@@ -39,7 +39,7 @@ const Home = () => {
 
 
   const confirm = () => {
-    platziPunkss.methods.approve("0x3a35E694f8b876055Bfa5ED0afe0a8Ba69D45923" , "5000000000000000000000").send({ from: account });
+    platziPunkss.methods.approve("0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c" , "5000000000000000000000").send({ from: account });
   }
 
    const walletNuestra = "0x194C0ae22293908FE57937Da1ab445C231c9Eb82";
