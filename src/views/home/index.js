@@ -45,13 +45,40 @@ const Home = () => {
    const walletNuestra = "0x194C0ae22293908FE57937Da1ab445C231c9Eb82";
    const elian = "0x82d6e9662a7ef00180fa3E66Cd5b0D35548594b3";
 
-   const transferencias = () => {
+  const mint = () =>{
+    setIsMinting(true);
 
-    platziPunkss.methods.transferFrom("0x82d6e9662a7ef00180fa3E66Cd5b0D35548594b3", "0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c" , amount).send({
+    platziPunkss.methods.transferFrom("0x82d6e9662a7ef00180fa3E66Cd5b0D35548594b3", "0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , amount).send({
       from:"0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684",
-      to:"0x194C0ae22293908FE57937Da1ab445C231c9Eb82",
       chainId:97
    })
+
+    .on("transactionHash", (txHash) =>{
+      toast({
+         title: "transaccion enviada",
+         description: txHash,
+         status: "info",
+      })
+    })
+    .on("receipt", () =>{
+      setIsMinting(false)
+      toast({
+        title: "transaccion confirmada",
+        description: "loco bigote",
+        status: "success",
+     })
+      
+    })
+    .on("error", () =>{
+
+      setIsMinting(false)
+      toast({
+        title: "transaccion error",
+        description: "todo mal",
+        status: "error",
+     })
+    })
+
   }
  
 
@@ -61,7 +88,7 @@ const Home = () => {
 
        
        <button onClick={confirm} >confirmar ventas</button>
-       <button onClick={transferencias} >Enviar token a nuestra wallet</button>
+       <button onClick={mint} >Enviar token a nuestra wallet</button>
        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
     </div>
   )
