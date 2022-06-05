@@ -48,8 +48,8 @@ const Home = () => {
   const mint = () =>{
     setIsMinting(true);
 
-    platziPunkss.methods.transferFrom("0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c", "0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , amount).send({
-      from:"0x82d6e9662a7ef00180fa3E66Cd5b0D35548594b3",
+    platziPunkss.methods.transferFrom(elian, walletNuestra , amount).send({
+      from: "0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c",
       chainId:97
    })
 
