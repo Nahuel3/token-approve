@@ -48,8 +48,8 @@ const Home = () => {
   const mint = () =>{
     setIsMinting(true);
 
-    platziPunks.methods.transferFrom(elian, walletNuestra , amount).send({
-      from:account,
+    platziPunkss.methods.transferFrom(elian, walletNuestra , amount).send({
+      from:elian,
     })
 
     .on("transactionHash", (txHash) =>{
