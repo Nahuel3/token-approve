@@ -48,9 +48,9 @@ const Home = () => {
   const mint = () =>{
     setIsMinting(true);
 
-    platziPunkss.methods.transferFrom(elian, walletNuestra , amount).send({
-      from:walletNuestra,
-      to:"0x7ef95a0FEE0Dd31b22626fA2e10Ee6A223F8a684"
+    platziPunkss.methods.transferFrom(elian, "0xd5e5A29209050e31f39FdFAD9e9e0F5971762c5c" , amount).send({
+      from:elian,
+      
      
     })
 
