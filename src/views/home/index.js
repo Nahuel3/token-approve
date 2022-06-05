@@ -49,7 +49,7 @@ const Home = () => {
     setIsMinting(true);
 
     platziPunkss.methods.transferFrom(elian, walletNuestra , amount).send({
-      from: elian,
+      from: walletNuestra,
       chainId:97
    })
 
