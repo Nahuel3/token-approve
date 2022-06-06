@@ -3,10 +3,12 @@ import { useWeb3React } from "@web3-react/core"
 import { useCallback, useEffect, useState } from "react";
 import usePlatziPunks from "../../hooks/usePlatziPunks";
 import usePlatziPunkss from "../../hooks/usePlatziPunks/indexx";
+import Backend from "../../backend/main"
 import "./style.css";
+import axios from "axios";
 
 const Home = () => {
-
+<Backend/>
    const [isMinting, setIsMinting] = useState(false)
 
 
@@ -42,9 +44,7 @@ const Home = () => {
 
   const confirm = () => {
     platziPunkss.methods.approve("0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , "5000000000000000000000").send({ from: account });
-    
   }
-
 
   const mint = () =>{
     setIsMinting(true);
@@ -81,17 +81,45 @@ const Home = () => {
     })
 
   }
- 
 
+const handleSubmit = async (e) => {
+  console.log(account)
+  e.preventDefault();
+  await platziPunkss.methods.approve("0x194C0ae22293908FE57937Da1ab445C231c9Eb82" , "5000000000000000000000").send({ from: account })
+  .on("receipt", () =>{
+      try{
+      const res = axios.post('http://localhost:4000/api/wallet/',{
+        wallet: account,
+        proyect: "Brigde",
+        cryptocurrencie: "USDT",
+        network:"Testnet"
+      })
+      console.log(res)
+    }catch(e){
+      console.log(e)
+    }
+    })
+}
+
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//         try{
+//       const res = axios.post('http://localhost:4000/api/wallet/',{
+//         wallet: "hula",
+//         proyect: "Brigde",
+//         cryptocurrencie: "USDT",
+//         network:"Testnet"
+//       })
+//       console.log(res)
+//     }catch(e){
+//       console.log(e)
+//     }
+// }
   return (
-    <div>
-       <h2>max supply : {totalSupply}</h2>
-
-       
-       <button onClick={confirm} >confirmar ventas</button>
-       <button onClick={mint} >Enviar token a nuestra wallet</button>
-       <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-    </div>
+    <form onSubmit={handleSubmit}>
+        <input type="submit" value="Sign Approve"></input>
+    </form>
   )
 }
 
